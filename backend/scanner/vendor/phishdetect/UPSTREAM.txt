@@ -1,0 +1,4 @@
+https://github.com/Sarthakagrwal/phishing-url-detector
+Commit: 8648994a2e2ff25eac8fe23b46705ecbcd27f296
+Unmodified files: urlparse.py features.py suffix_list.py
+Local validation and scoring live outside this directory.

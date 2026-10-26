@@ -1,0 +1,58 @@
+/* Mordindang: RGB 167,59,36 (#A73B24). Supporting shades are project choices. */
+:root{--kku:#a73b24;--kku-dark:#732719;--kku-soft:#f8eae3;--kku-border:#e9dcd3;--kku-ink:#382921;--kku-muted:#79675c;background:#faf7f2;color:var(--kku-ink)}
+.portal{color:var(--kku-ink);background:linear-gradient(120deg,#fcfaf6,#f5efe6)}
+.p-sidebar{border-color:var(--kku-border);background:#fffdf9}
+.p-brand{color:var(--kku-dark)}
+.p-brand svg{background:var(--kku)}
+.p-sidebar nav button{color:#624b3e}
+.p-sidebar nav button:hover,.p-sidebar nav button.selected{color:var(--kku);background:var(--kku-soft)}
+.p-sidebar nav button.selected{box-shadow:inset 3px 0 var(--kku)}
+.p-sidebar>small,.p-footer,.p-card>small,.lesson-preview small{color:var(--kku-muted)}
+.p-top h1{color:#4c2e22}
+.p-top>span{background:#f0e6d8;color:#75462d}
+.p-hero{background:radial-gradient(ellipse at top right,#c17d4540,transparent 65%),linear-gradient(115deg,#562218,#8d3322 65%,#a73b24);border:1px solid #8f3425;box-shadow:0 12px 30px #7936240c}
+.p-hero>div>p{color:#f3d9c7}
+.p-hero h2{color:#fffaf3}
+.p-tip{background:linear-gradient(135deg,#793320,#492318)}
+.p-tip>svg{color:#f2cb81}.p-tip p{color:#efd8c5}
+.blue-btn,.portal .primary{background:var(--kku);border-color:var(--kku);box-shadow:none}
+.blue-btn:hover,.portal .primary:hover{background:var(--kku-dark)}
+.p-hero .blue-btn,.p-tip .blue-btn{background:#fff2da;color:#72301d!important}
+.p-hero .blue-btn:hover,.p-tip .blue-btn:hover{background:#f4d5a6}
+.ghost-btn{border-color:#e9bf9f;color:#fffaf3}
+.email-card{color:#573c2e;box-shadow:0 12px 25px #2d100d30}
+.email-card>div{border-color:var(--kku-border)}
+.email-card section>p,.email-card article p{color:#79665c}
+.email-card>div>span{color:#907967}
+.p-action,.p-card,.portal .card{border-color:var(--kku-border);background:#fffdfa}
+.p-action:hover{background:#fff8ee;border-color:#cc9b80}
+.p-action p,.p-card p,.lesson-preview p,.privacy-preview span{color:var(--kku-muted)}
+.p-action .blue{background:#f8e5dc;color:var(--kku)}
+.p-action .green{background:#eaf0df;color:#52673e}
+.p-action .yellow{background:#f7edd4;color:#876020}
+.card-heading>button,.lesson-button svg,.lesson-button span,.lesson-article a,.quiz-intro>svg{color:var(--kku)}
+.browser-art{background:linear-gradient(135deg,#f2ddc9,#fbf2e7)}
+.browser-art>div{box-shadow:0 10px 20px #87634426}
+.browser-art span{background:#bc7857}.browser-art p{color:#634635}
+.privacy-preview b{color:#4c3226}.monitor-art{background:#f5ecd7}
+.monitor-art>svg:last-child{color:var(--kku)}
+.p-tabs button{background:#f1e7de;color:#6c4937}.p-tabs .selected{background:var(--kku);color:white}
+.local-option{color:var(--kku-muted)}
+.portal textarea,.history-tools input{border-color:#d6c3b3;background:#fffdfa;color:var(--kku-ink)}
+.portal textarea:focus,.history-tools input:focus{outline:2px solid var(--kku);outline-offset:2px}
+.child-result,.quiz-question label{background:#f8f1e8}
+.history-row,.finding-row{border-color:var(--kku-border)}
+.history-row small,.history-row span{color:var(--kku-muted)}
+.portal input[type=checkbox],.quiz-question input{accent-color:var(--kku)}
+.portal button:focus-visible,.portal a:focus-visible{outline-color:var(--kku)}
+.portal .eyebrow,.portal h1 span{color:var(--kku)}
+.portal .icon-tile{background:var(--kku-soft);color:var(--kku)}
+.portal .bar{background:var(--kku)}
+.portal .url-field:focus-within{border-color:var(--kku);box-shadow:0 0 0 3px #a73b2414}
+.portal .url-field{border-color:#d8c9bb}.portal .url-field input{color:var(--kku-ink)}
+.portal .disclaimer{background:#f1e8dc;border-color:var(--kku-border);color:#786352}
+.portal .disclaimer b{color:#5e4333}
+.portal .advice{background:#f6eee2;color:#765535}.portal .advice button{color:var(--kku)}
+.portal .pill{background:#f9eee4;border-color:#ead7c4;color:#895236}
+.portal .page-heading p,.portal .muted,.portal .metric>span{color:var(--kku-muted)}
+/* Risk colors remain semantic: green / amber / red. */

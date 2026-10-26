@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: cyberguard
+      POSTGRES_USER: cyberguard
+      POSTGRES_PASSWORD: local-only-change-before-sharing
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - cyberguard_db:/var/lib/postgresql/data
+volumes:
+  cyberguard_db:
+

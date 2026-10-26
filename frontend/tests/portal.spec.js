@@ -1,0 +1,46 @@
+import {test,expect} from '@playwright/test';
+test('home reference sections and mobile fit',async({page})=>{
+ await page.goto('/');
+ await expect(page.getByRole('heading',{name:'เช็กก่อนคลิก รู้ทันก่อนเชื่อ'})).toBeVisible();
+ await expect(page.locator('.p-action')).toHaveCount(3);
+ await page.screenshot({path:'test-results/home-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+ await page.screenshot({path:'test-results/home-mobile.png',fullPage:true});
+ await page.getByRole('button',{name:'เปิดบทเรียน',exact:true}).click();
+ await expect(page.locator('.lesson-article')).toContainText('HTTPS');
+});
+test('message local history persists and can be deleted; opt out works',async({page})=>{
+ await page.goto('/');
+ await page.locator('.p-action').filter({hasText:'ตรวจสอบข้อความ'}).click();
+ await page.getByLabel('ข้อความที่ต้องการตรวจ').fill('ด่วน ระงับบัญชี ยืนยันรหัสผ่าน https://example.com');
+ await page.getByRole('button',{name:'ตรวจสอบข้อความ',exact:true}).click();
+ await expect(page.locator('.result-panel')).toContainText('75/100');
+ await page.reload();
+ await page.getByRole('navigation').getByRole('button',{name:'ประวัติ',exact:true}).click();
+ await expect(page.locator('.history-row')).toHaveCount(1);
+ await page.locator('.history-row').getByRole('button').first().click();
+ await expect(page.locator('.result-panel')).toContainText('75/100');
+ await page.getByRole('button',{name:'ล้างประวัติทั้งหมด'}).click();
+ await page.getByRole('button',{name:'ยืนยันลบ',exact:true}).click();
+ await expect(page.locator('.history-row')).toHaveCount(0);
+ await page.getByRole('navigation').getByRole('button',{name:'ตรวจสอบ',exact:true}).click();
+ await page.getByRole('button',{name:'ตรวจข้อความ',exact:true}).click();
+ await page.getByRole('checkbox').uncheck();
+ await page.getByLabel('ข้อความที่ต้องการตรวจ').fill('สวัสดีครับ');
+ await page.getByRole('button',{name:'ตรวจสอบข้อความ',exact:true}).click();
+ await expect(page.locator('.result-panel')).toContainText('0/100');
+ await page.getByRole('navigation').getByRole('button',{name:'ประวัติ',exact:true}).click();
+ await expect(page.locator('.history-row')).toHaveCount(0);
+});
+test('practice requires every answer and returns explanations',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:'ลองแบบฝึกหัด'}).click();
+ await page.getByRole('button',{name:'เริ่มแบบฝึกหัด',exact:true}).click();
+ await expect(page.getByRole('button',{name:'ส่งคำตอบและดูเฉลย'})).toBeDisabled();
+ for(const [i,answer] of [1,1,2,1,0].entries()) await page.locator('fieldset').nth(i).getByRole('radio').nth(answer).check();
+ await page.getByRole('button',{name:'ส่งคำตอบและดูเฉลย'}).click();
+ await expect(page.locator('.quiz-score')).toContainText('5 / 5');
+ await expect(page.locator('.review')).toHaveCount(5);
+ await page.screenshot({path:'test-results/practice-results.png',fullPage:true});
+});
